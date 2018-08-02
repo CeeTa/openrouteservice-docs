@@ -854,6 +854,22 @@ paths:
         enum:
         - "start"
         - "destination"
+      - name: "smoothing"
+        in: "query"
+        description: "Applies a level of generalisation to the isochrone polygons generated. \n
+          \Generalisation is produced by determining a maximum length of a connecting line \
+          \between two points found on the outside of a containing polygon. If the distance is \
+          \larger than a threshold value, the line between the two points is removed and a \
+          \smaller connecting line between other points is used. The threshold value is \
+          \determined as (smoothing_factor * maximum_radius_of_isochrone) / 10. Therefore, a \
+          \value closer to 1 will result in a more generalised shape.\n
+          \The polygon generation algorithm is based on Duckham and al. (2008) `"Efficient \
+          \generation of simple polygons for characterizing the shape of a set of points in \
+          \the plane"`
+        type: "number"
+        format: "float"
+        minimum: 0
+        maximum: 1.0
       - name: "attributes"
         in: "query"
         description: |
