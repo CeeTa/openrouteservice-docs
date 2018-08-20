@@ -393,6 +393,16 @@ paths:
           description: "Authorization field missing."
         403:
           description: "Key not authorised."
+        404:
+          description: |
+            An element could not be found. If possible, a more detailed error code is provided.
+          
+            | Internal Code | Description                                        |
+            |:-------------:|----------------------------------------------------|
+            | 2009 |  A route could not be found for the requested options. |
+            | 2010 |  One or more points specified cannot be found in the routing network. |
+          schema:
+            $ref: "#/definitions/error"
         405:
           description: "The specified HTTP method is not supported. For more details,\
             \ refer to the EndPoint documentation."
